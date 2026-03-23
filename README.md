@@ -27,7 +27,9 @@ We use [TravelPlanner](https://github.com/OSU-NLP-Group/TravelPlanner/) as a lon
 
 ### 🎙️ News 
 
-🌱 **[2026-03-23]** We release the data synthesis and inference framework of our STAR-pipeline, along with three STAR-SFT models and three STAR-RL models. Stay tuned for continuous updates, new STAR checkpoints, RL training frameworks, and RL scripts will be added over time!
+🌱 **[2026-03-23]** We release the data synthesis and inference framework of our STAR-pipeline, along with three STAR-SFT models and three STAR-RL models. 
+
+> 👀 Stay tuned for continuous updates, new STAR checkpoints, RL training frameworks, and RL scripts will be added over time!
 
 --- 
 
@@ -57,18 +59,18 @@ Synthetic datasets are available at https://huggingface.co/datasets/xxwu/Agent-S
 
 To generate your own training samples, follow the three-step pipeline:
 
-* Step 0 - Prepare the travel database
+* **Step 0 - Prepare the travel database**
   * Download: https://huggingface.co/datasets/xxwu/Agent-STAR-TravelDatabase
   * Put all CSV files under `database/`.
 
-* Step 1 - Element sampling
+* **Step 1 - Element sampling**
 
   ```shell
   cd DataSynthesis
   python3 step1_generate_dict.py --generate_dict --easy_num 1000 --medium_num 1000 --hard_num 1000
   ```
 
-* Step 2 - Feasibility checking
+* **Step 2 - Feasibility checking**
 
   Merge the sampled files into a single file, e.g., `combine_3k.jsonl`, then:
   ```shell
@@ -76,7 +78,7 @@ To generate your own training samples, follow the three-step pipeline:
   ```
   Output files: `*_feasible.jsonl` and `*_failed.jsonl`.
 
-* Step 3 - Query generation
+* **Step 3 - Query generation**
 
   Use LLM back-translation to turn feasible JSON elements into natural language TravelPlanner queries 
 
@@ -141,11 +143,11 @@ We provide ready-to-use scripts under `Inference/scripts/`:
 
 ### Step-by-step
 
-* Step 0: Prepare the environment
+* **Step 0: Prepare the environment**
   * Put the TravelPlanner travel [CSVs](https://huggingface.co/datasets/xxwu/Agent-STAR-TravelDatabase) under `database/`.
   * If you use commercial LLMs, fill `Inference/config.json` including API endpoints and keys.
 
-* Step 1: **Run ReAct inference** 
+* **Step 1: Run ReAct inference** 
 
   From the repo root, you can run:
   ```shell
@@ -162,7 +164,7 @@ We provide ready-to-use scripts under `Inference/scripts/`:
   If you want to run inference on your own synthesized dataset, add:
   `--use_custom_query --input_file YOUR_FILE.jsonl`.
 
-* Step 2: **Post-processing** to format plans into the evaluation JSON
+* **Step 2: Post-processing to format plans into the evaluation JSON**
    
   Fill up the API key of the formatting model, DeepSeek-V3.2, in the `utils.py` first:
 
@@ -175,10 +177,12 @@ We provide ready-to-use scripts under `Inference/scripts/`:
 
   `post_process.py` converts the model’s natural-language itinerary into the strict JSON format used by the evaluators.
 
-  > [⚠️!IMPORTANT]
-  > **Reward-hacking prevention:** for `--split test`, `post_process.py` runs `utils.py::format_planning_for_official_test()` to normalize `transportation`, i.e., `driving/...` → `Self-driving`, so TravelPlanner’s checker matches correctly. Local eval additionally uses `Inference/eval_commonsense.py::detect_transportation_type()` for **stricter transport matching**.
+  **⚠️ IMPORTANT & 🚨 REWARD-HACKING PREVENTION**
+    * For test set, `post_process.py` runs `utils.py::format_planning_for_official_test` to normalize `transportation`, i.e., `driving/...` → `Self-driving`, so TravelPlanner’s checker matches correctly.
+    * For local evaluation like validation set, we use `Inference/eval_commonsense.py::detect_transportation_type` for **stricter transport matching**.
 
-* Step 3: **Evaluation**
+
+* **Step 3: Evaluation**
   * Validation set: 
     ```
     python3 -u eval.py --path YOUR_FORMATTED.jsonl --save_score
