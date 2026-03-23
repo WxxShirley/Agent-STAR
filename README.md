@@ -1,4 +1,4 @@
-# AgentSTAR 
+# Agent-STAR 
 
 <p align="center">
    <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/📝-Paper-blue" height="25"></a>
@@ -125,7 +125,7 @@ For STAR-RL, we follow the paper’s scale-aware recipe: smaller models benefit 
 |Agent-STAR-RL-7B|https://huggingface.co/xxwu/Agent-STAR-RL-7B|
 
 
-![](.assets/performance.jpg)
+<img src=".assets/performance.jpg" width="600" />
 
 The figure summarizes TravelPlanner test-set success across training variants and model scales.
 
@@ -172,8 +172,8 @@ We provide ready-to-use scripts under `Inference/scripts/`:
 
   **Note**: for `--split test`, `post_process.py` calls `utils.py::format_planning_for_official_test()` to normalize fields, especially `transportation` into the exact form expected by the official TravelPlanner checker.
 
-  <span style="color:red"><b>IMPORTANT [Reward-Hacking Prevention]</b> Do not skip the transportation normalization and strict transportation matching below.</span>
-  <span style="color:red"> TravelPlanner’s default `transportation_match()` is substring-based and only reliably matches `taxi` / `self-driving` / `flight`; many "driving" synonyms can be missed, which may let an agent incorrectly pass transportation checks and then incorrectly receive Success. </span>
+  <p style="color:red"><b>IMPORTANT [Reward-Hacking Prevention]</b><br/> Do not skip the transportation normalization and strict transportation matching below.</p>
+  <p style="color:red"> TravelPlanner’s offical transportation_match() is substring-based and only reliably matches taxi / self-driving / flight. However, many driving synonyms can be missed, which may let an agent <strong style="color:red">incorrectly pass transportation checks and then incorrectly receive Success.</strong></p>
 
   In our setup, we enforce **stricter transportation handling**:
   * `Inference/eval_commonsense.py` uses `detect_transportation_type(text)` to map more driving-related keywords to a consistent transportation type, and then checks constraint consistency.
