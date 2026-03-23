@@ -466,6 +466,7 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", type=str, default="output")
 
     args = parser.parse_args()  
+    os.makedirs(args.output_dir, exist_ok=True)
     
     init_start_time = time.time() 
     if args.generate_dict:

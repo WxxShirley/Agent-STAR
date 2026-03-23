@@ -71,8 +71,9 @@ check_port $VLLM_PORT "Eval Model" || exit 1
 echo "Starting inference..."
 
 cd /PATH/TO/Inference
+mkdir -p "logs"
 
-python3 -u main.py --model $MODEL_PATH --save_suffix $SUFFIX --max_workers 64 --split test --server_url http://localhost:$VLLM_PORT/v1 --max_context 32768 >>logs/testset/$BASE_MODEL_NAME+$SUFFIX.log 
+python3 -u main.py --model $MODEL_PATH --save_suffix $SUFFIX --max_workers 64 --split test --server_url http://localhost:$VLLM_PORT/v1 --max_context 32768 >>logs/$BASE_MODEL_NAME+$SUFFIX.log 
 
 # post-process 
 python3 -u post_process.py --path output/${BASE_MODEL_NAME}_test_${SUFFIX}/predictions.jsonl --format_model deepseek-chat --split test 

@@ -63,7 +63,8 @@ class TravelReActAgent:
                     top_p=self.generation_cfg.get("top_p", 0.95),
                     max_tokens=8192,
                     reasoning_effort="high",
-                    # for Qwen3.5-397B-A17B 
+                    # TODO: for Qwen3.5-397B-A17B / DeepSeek-V3.2-Exp-671B-Thinking 
+                    # Must uncomment the following line
                     # extra_body={"enable_thinking": True}, 
                 )
                 content = response.choices[0].message.content

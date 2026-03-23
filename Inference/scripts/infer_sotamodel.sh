@@ -31,13 +31,13 @@ python3 -u main.py \
 
 # post-process
 python3 -u post_process.py \
-        --path "output/20260210_SOTA_Model/${BASE_MODEL_NAME}_${SPLIT}_${SUFFIX}/predictions.jsonl" \
+        --path "output/${BASE_MODEL_NAME}_${SPLIT}_${SUFFIX}/predictions.jsonl" \
         --format_model deepseek-chat \
         --split "$SPLIT"
 
 # score
 if [ "$SPLIT" = "validation" ]; then
   python3 -u eval.py \
-    --path "output/20260210_SOTA_Model/${BASE_MODEL_NAME}_${SPLIT}_${SUFFIX}/predictions_deepseek-chat_formatted.jsonl" \
+    --path "output/${BASE_MODEL_NAME}_${SPLIT}_${SUFFIX}/predictions_deepseek-chat_formatted.jsonl" \
     --save_score >> "$SCORE_FILE" 2>&1
 fi
