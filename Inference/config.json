@@ -1,0 +1,43 @@
+{
+    "deepseek-chat": {
+        "url": "https://api.deepseek.com/",
+        "api_key": "",
+        "model": "deepseek-chat",
+        "description": "DeepSeek-V3.2-671B model"
+    },
+    "deepseek-reasoner": {
+        "url": "https://api.deepseek.com/",
+        "api_key": "",
+        "model": "deepseek-reasoner",
+        "description": "DeepSeek-V3.2-671B-Thinking model"
+    },
+    "kimi-k2.5": {
+        "url": "https://api.moonshot.cn/v1",
+        "api_key": "", 
+        "model": "kimi-k2.5",
+        "description": "Kimi-K2.5-1T model"
+    },
+    "google/gemini-3-pro-preview": {
+        "url": "https://openrouter.ai/api/v1", 
+        "api_key": "", 
+        "model": "google/gemini-3-pro-preview"
+    },
+    "deepseek-v3.2-exp": {
+        "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "", 
+        "model": "deepseek-v3.2-exp",
+        "description": "DeepSeek-V3.2-Exp-671B model"
+    },
+    "doubao-seed-1-8-251228": {
+        "url": "https://ark.cn-beijing.volces.com/api/v3", 
+        "api_key": "",
+        "model": "doubao-seed-1-8-251228",
+        "description": "Seed-V1.8 model"
+    },
+    "qwen3.5-plus": { 
+        "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "", 
+        "model": "qwen3.5-plus",
+        "description": "Qwen3.5-397B-A17B model"
+    }
+}
