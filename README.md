@@ -1,7 +1,7 @@
 # Agent-STAR 
 
 <p align="center">
-   <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/📝-Paper(Coming soon)-blue" height="25"></a>
+   <a href="https://arxiv.org/abs/2603.21972"><img src="https://img.shields.io/badge/📝-Paper-blue" height="25"></a>
    <a href="https://huggingface.co/datasets/xxwu/Agent-STAR-TravelDataset"><img src="https://img.shields.io/badge/🤗-Dataset-green" height="25"></a>
    <a href="https://huggingface.co/collections/xxwu/agent-star"><img src="https://img.shields.io/badge/🚀-Models-yellow" height="25"></a>
 </p>
@@ -26,6 +26,8 @@ We use [TravelPlanner](https://github.com/OSU-NLP-Group/TravelPlanner/) as a lon
 
 
 ### 🎙️ News 
+
+📑 **[2026-03-24]** Our paper is released on arXiv!
 
 🌱 **[2026-03-23]** We release the data synthesis and inference framework of our STAR-pipeline, along with three STAR-SFT models and three STAR-RL models. 
 
