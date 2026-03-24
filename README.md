@@ -17,9 +17,13 @@ We use [TravelPlanner](https://github.com/OSU-NLP-Group/TravelPlanner/) as a lon
 
 ```
 @misc{wu2026agentstar,
-   title={Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe},
-   author={Xixi Wu and Qianguo Sun and Ruiyang Zhang and Chao Song and Yiyan Qi and Hong Cheng}, 
-   url={https://github.com/WxxShirley/Agent-STAR},
+      title={Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe}, 
+      author={Xixi Wu and Qianguo Sun and Ruiyang Zhang and Chao Song and Junlong Wu and Yiyan Qi and Hong Cheng},
+      year={2026},
+      eprint={2603.21972},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2603.21972}, 
 }
 ```
 
