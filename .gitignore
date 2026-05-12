@@ -25,3 +25,15 @@ __pycache__
 .python-version
 pyrightconfig.json
 */output/ 
+
+RL/ 
+*/trajectory/ 
+*/logs/ 
+*/taubench/ 
+*/taubench 
+
+/backup_data/ 
+*/backup_data/ 
+
+/backup_scripts/
+*/backup_scripts/

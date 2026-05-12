@@ -172,13 +172,14 @@ We provide ready-to-use scripts under `Inference/scripts/`:
 
 * **Step 2: Post-processing to format plans into the evaluation JSON**
    
-  Fill up the API key of the formatting model, DeepSeek-V3.2, in the `utils.py` first:
+  Set the DashScope API key used by `Inference/utils.py`:
 
   ```shell
+  export DASHSCOPE_API_KEY="YOUR_DASHSCOPE_API_KEY"
   python3 -u post_process.py \
     --path PREDICTIONS.jsonl \
     --split validation  # or test
-    --format_model deepseek-chat
+    --format_model deepseek-v3.2-exp
   ```
 
   `post_process.py` converts the model’s natural-language itinerary into the strict JSON format used by the evaluators.

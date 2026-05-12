@@ -5,18 +5,20 @@ import json
 
 
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
 
 
 def call_openai(messages: list[dict], max_retries: int = 20, model: str = "deepseek-chat") -> str: 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {DEEPSEEK_API_KEY}" 
+        "Authorization": f"Bearer {DASHSCOPE_API_KEY}" 
     }
 
-    base_url = "https://api.deepseek.com/chat/completions"
+    # base_url = "https://api.deepseek.com/chat/completions"
+    base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions" 
 
     payload = {
-        "model": model,
+        "model": "deepseek-v3.2-exp",
         "messages": messages,
         "max_tokens": 8192,
     }
